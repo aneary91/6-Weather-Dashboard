@@ -14,14 +14,15 @@ $(document).ready(function () {
     $.ajax({
       type: "GET",
       url:
-        "api.openweathermap.org/data/2.5/weather?q=" +
+        "http://api.openweathermap.org/data/2.5/weather?q=" +
         city +
         "&appid=" +
         apiKey +
         "&units=imperial",
       dataType: "json",
       success: function (response) {
-        console.log(response);
+        const yoCityTitle = $('<h3>').addClass('card-title').text(response.name)
+          console.log(yoCityTitle)
       },
     });
   }
