@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
     <title>Weather Dashboard</title>
-</head>
-<body>
-    <header class="container-fluid">Weather Dashboard</header>
+  </head>
+  <body>
+    <header class="container-fluid"
+    id='topBar'>Weather Dashboard</header>
 
     <section class="top-banner">
         <div class="container">
             <h4 class="heading">Search for your City!</h4>
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">An item</li>
-                  <li class="list-group-item">A second item</li>
-                  <li class="list-group-item">A third item</li>
-                </ul>
-              </div>
             <form>
-                <input type="text" id="yoCity" placeholder="Search for a city" autofocus>
-                <button type="submit" id="goButton">GO!</button>
+              <input
+                type="text"
+                id="yoCity"
+                placeholder="Search for a city"
+                autofocus
+              />
+              <button type="submit" id="goButton">GO!</button>
             </form>
+        <div class="card" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">neeed to figure out</li>
+            <li class="list-group-item">how to make this list an on click</li>
+            <li class="list-group-item">
+              finction that will store previous searches
+            </li>
+          </ul>
         </div>
+      </div>
     </section>
     <section class="day-container">
-        <div class="ajax-section"> </div>
-        <div class="five-day"></div>
+      <div class="ajax-section"></div>
+      <div class="five-day"></div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-      </section>
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
- <script src="./script.js"></script>
-</body>
-
+    <script src="./script.js"></script>
+  </body>
 </html>
