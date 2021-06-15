@@ -16,28 +16,44 @@
 </head>
 
 <body>
-  <header class="container-fluid" id="topBar">Weather Dashboard</header>
+  <header>
+  <h1><strong> Weather Dashboard</strong></h1>
+  </header>
 
-  <section class="container">
-    <div class="top-banner">
-      <h5 id="heading">Search for your City!</h5>
-      <div class="top-banner container sd-inline-flex">
-        <form id="form" class="form-inline d-inline-flex my-2 my-lg-0">
-          <input type="search" class="form-control mr-sm-2" id="yoCity" placeholder="Search for a City" autofocus />
-          <button type="submit" id="goButton" class="btn btn-primary">Search</button>
-        </form>
-        <ul class="list-group list-group-flush citySearch"></ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 searchContainer">
+        <h3> Search for a City </h3>
+        <div class='input-group mb-3'>
+          <input id='cityInput' type='text' class='form-control' placeholder='Enter your City' aria-label='CityName'
+            aria-descreibedby='basic-addon1'> 
+            <button id='searchButton'><i class='fab fa-searchengin'> </i></button>
+        </div>
+          <ul id='searchedCities' class='list-group something'></ul>
+      </div>
+      <div class='col-9 currentDay'>
+        <div class='card-body'>
+          
+          <h4 id='cityTitle' class='card-title'>City</h4>
+          <img id='weatherIcon' src=''/>
+          <p id='currentDate' class='card-text'></p>
+          <p id='temperture' class='card-text'></p>
+          <p id='humidity' class='card-text'></p>
+          <p id='wind' class='card-text'></p>
+          <p id='uvin' class='card-text'></p>
+        </div>
+      </div>
+      <br>
+      <div class='row fiveday'>
+        <h3>5-Day Forecast</h3>
+        <div class='card-group' id='fiveDay'></div>
+
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="day-container">
-    <div class="ajax-section"></div>
-    <div class="five-day"></div>
-  </section>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="./script.js"></script>
+  <script src='assets/scripts.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
 </body>
 
 </html>
