@@ -43,7 +43,11 @@ fetch(urlWeather).then(response => response.json())
             document.getElementById("humidity").innerHTML = "Humidity: " + json.main.humidity
             document.getElementById("wind").innerHTML = "Wind Speed: " + json.wind.speed
             document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png"
+ // latitude & longitude to get the UV index 
+ var lat = json.coord.lat
+ var lon = json.coord.lon
+ forecast(city)
+ uv(lat, lon)
 })
-
-
+.catch(err => console.log('Request failed', err))
 }
