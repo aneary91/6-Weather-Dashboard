@@ -36,3 +36,25 @@ header {
     padding: 10px;
     margin-top: 15px;
 }
+.fiveday {
+    text-align: center;
+    background-color: lightcyan;
+    padding: 10px;
+}
+
+h3 {
+    padding-bottom: 5px;
+}
+
+button {
+    background-color: lightblue;
+    border-radius: 10px;
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: lightcyan;
+}
