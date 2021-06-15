@@ -51,3 +51,24 @@ fetch(urlWeather).then(response => response.json())
 })
 .catch(err => console.log('Request failed', err))
 }
+
+// this is going to create a function to insert the 5 day forcast into the HTML
+function forecast(city) {
+  //5 day forcast fetch 
+  var forecastURL = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric';
+
+  var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+  //fetch info based on location entered
+  fetch(urlWeather).then(response => response.json())
+    .then(json => {
+      console.log(json)
+      //inserting the weather information inot the HTML document
+            document.getElementById("cityTitle").innerHTML = json.name
+            document.getElementById("currentDate").innerHTML = "Current Date: " + `${time}`            
+            document.getElementById("temperature").innerHTML = "Temperature: " + json.main.temp
+            document.getElementById("humidity").innerHTML = "Humidity: " + json.main.humidity
+            document.getElementById("wind").innerHTML = "Wind Speed: " + json.wind.speed
+            document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png"
+    })
+}
