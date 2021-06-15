@@ -68,16 +68,26 @@ function forecast(city) {
             <div class="card forecast">
             <div class="card-body">
               <h5 class="card-title">${new Date(
-                        json.list[i].dt_txt
-                    ).toLocaleDateString()}</h5>
+                        json.list[i].dt_txt)
+                    .toLocaleDateString()}</h5>
               <img src='${"http://openweathermap.org/img/w/" + json.list[i].weather[0].icon + ".png"}'/>
               <p class="card-text">${"Temperature: " + json.list[i].main.temp_max +
                         " °C"}</p>
               <p class="card-text">${"Humidity: " + json.list[i].main.humidity + "%"}</p>
             </div>
           </div> `
-          
+          document.getElementById('fiveDay').innerHTML += col 
           }
         }
       })
     }
+
+function uv(lat, lon) {
+  let uvURL =  'http://api.openweathermap.org/data/2.5/uvi?appid=' + APIkey + '&lat=' + lat + '&lon=' + lon;
+  fetch(uvURL).then(response => response.json())
+  .then(json => {
+    console.log(json)
+    document.getElementById('uvin').innerHTML = 'UV Index: ' + json.value
+  })
+}
+
