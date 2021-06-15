@@ -1,76 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
-    <title>Weather Dashboard</title>
-  </head>
-  <body>
-    <header class="container-fluid" id="topBar">Weather Dashboard</header>
 
-    <section class="container">
-      <div class="top-banner">
-        <h5 id="heading">Search for your City!</h5>
-        <div class="top-banner container sd-inline-flex">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <header class="container-fluid" id="topBar">Weather Dashboard</header>
+
+  <section class="container">
+    <div class="top-banner">
+      <h5 id="heading">Search for your City!</h5>
+      <div class="top-banner container sd-inline-flex">
         <form id="form" class="form-inline d-inline-flex my-2 my-lg-0">
-          <input type="search" class="form-control mr-sm-2" id="yoCity" placeholder="Search for a city" autofocus/>
-          <button type="submit" id="goButton" class="btn btn-primary" >Search</button>
+          <input type="search" class="form-control mr-sm-2" id="yoCity" placeholder="Search for a City" autofocus />
+          <button type="submit" id="goButton" class="btn btn-primary">Search</button>
         </form>
-        </div>
-        
-        <div class="row align-items-start">
-          <div class="col">
-            <div class="top-banner_container">
-              <div class="row row-cols-1 row-cols-lg d-inline-flex">
-              </div class="citySearch" id="citySearch">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card row d-inline-flex">
-            <div class="card-content" style="width: 50%">
-            </div>
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="row">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="card" id="card" style="width: 18rem">
-                  <div class="card-week" style="height: 8rem">
-                    <li class="card">neeed to figure out</li>
-                    <li class="list-group-item">
-                      how to make this list an on click
-                    </li>
-                    <li class="list-group-item">
-                      finction that will store previous searches
-                    </li>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="list-group list-group-flush citySearch"></ul>
       </div>
-    </section>
-    <section class="day-container">
-      <div class="ajax-section"></div>
-      <div class="five-day"></div>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </div>
+  </section>
 
-    <script src="./script.js"></script>
-  </body>
+  <section class="day-container">
+    <div class="ajax-section"></div>
+    <div class="five-day"></div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
 </html>
