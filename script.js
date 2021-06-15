@@ -20,5 +20,19 @@ function makeList(){
 makeList()
 
 // created a seach city function
+async function searchCity(city) {
+  var cities = JSON.parse(localStorage.getItem("cities")) || []
+  if (cities.indexOf(city) === -1) {
+      cities.push(city)
+      localStorage.setItem("cities", JSON.stringify(cities))
+      createList(city)
+  }
+// weather url
+var urlWeather = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric';
+
+var time = moment().format('MMMM Do YYYY, h:m:ss a');
 
 
+
+
+}
