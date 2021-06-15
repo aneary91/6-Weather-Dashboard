@@ -56,7 +56,7 @@ fetch(urlWeather).then(response => response.json())
 function forecast(city) {
   //5 day forcast fetch 
   var forecastURL = 'http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=metric';
-    var (forecastURL).then(response => response.json()) 
+    fetch(forecastURL).then(response => response.json()) 
       .then(json => {
         console.log(json) 
         // reset html to ot repeat 5 day forecast over and over again\
@@ -90,4 +90,16 @@ function uv(lat, lon) {
     document.getElementById('uvin').innerHTML = 'UV Index: ' + json.value
   })
 }
+// create list of cities searched to be added underneath search 
+function createList(city) {
+  var cityList = document.getElementById("searchedCities")
+  var list = `<button>${city}</button>`
+  cityList.innerHTML += list
+}
 
+// make the searched cities list clickable
+document.getElementById("searchedCities").addEventListener("click", function (event) {
+  if (!event.target.classList.contains("something")) {
+      searchCity(event.target.textContent)
+  }
+})
