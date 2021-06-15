@@ -9,3 +9,14 @@ header {
     padding-bottom: 10px;
     color: white;
 }
+.container-fluid {
+    margin-right: 15px;
+}
+
+.searchCont {
+    padding: 25px;
+}
+
+#cityInput {
+    height: 50px;
+}
