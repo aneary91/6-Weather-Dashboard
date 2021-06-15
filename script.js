@@ -37,7 +37,7 @@ fetch(urlWeather).then(response => response.json())
 .then(json => {
   console.log(json)
 // this is inserting the weather requirements into the HTML 
-  document.getElementById("cityTitle").innerHTML = json.name
+            document.getElementById("cityTitle").innerHTML = json.name
             document.getElementById("currentDate").innerHTML = "Current Date: " + `${time}`            
             document.getElementById("temperature").innerHTML = "Temperature: " + json.main.temp
             document.getElementById("humidity").innerHTML = "Humidity: " + json.main.humidity
@@ -55,20 +55,29 @@ fetch(urlWeather).then(response => response.json())
 // this is going to create a function to insert the 5 day forcast into the HTML
 function forecast(city) {
   //5 day forcast fetch 
-  var forecastURL = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric';
-
-  var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-
-  //fetch info based on location entered
-  fetch(urlWeather).then(response => response.json())
-    .then(json => {
-      console.log(json)
-      //inserting the weather information inot the HTML document
-            document.getElementById("cityTitle").innerHTML = json.name
-            document.getElementById("currentDate").innerHTML = "Current Date: " + `${time}`            
-            document.getElementById("temperature").innerHTML = "Temperature: " + json.main.temp
-            document.getElementById("humidity").innerHTML = "Humidity: " + json.main.humidity
-            document.getElementById("wind").innerHTML = "Wind Speed: " + json.wind.speed
-            document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png"
-    })
-}
+  var forecastURL = 'http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey + "&units=metric';
+    var (forecastURL).then(response => response.json()) 
+      .then(json => {
+        console.log(json) 
+        // reset html to ot repeat 5 day forecast over and over again\
+        document.getElementById('fiveDay').innerHTML = ''
+        for (let i = 0; i < json.list.length; i++) {
+          if (json.list[i].dt_txt.indexOf('15:00:00') !== -1) {
+            // a card with 5 day forecast 
+            let col = `
+            <div class="card forecast">
+            <div class="card-body">
+              <h5 class="card-title">${new Date(
+                        json.list[i].dt_txt
+                    ).toLocaleDateString()}</h5>
+              <img src='${"http://openweathermap.org/img/w/" + json.list[i].weather[0].icon + ".png"}'/>
+              <p class="card-text">${"Temperature: " + json.list[i].main.temp_max +
+                        " °C"}</p>
+              <p class="card-text">${"Humidity: " + json.list[i].main.humidity + "%"}</p>
+            </div>
+          </div> `
+          
+          }
+        }
+      })
+    }
