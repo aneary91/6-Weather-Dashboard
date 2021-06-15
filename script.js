@@ -32,7 +32,18 @@ var urlWeather = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appi
 
 var time = moment().format('MMMM Do YYYY, h:m:ss a');
 
-
+// now we are going to fetch this info based on the location entered
+fetch(urlWeather).then(response => response.json())
+.then(json => {
+  console.log(json)
+// this is inserting the weather requirements into the HTML 
+  document.getElementById("cityTitle").innerHTML = json.name
+            document.getElementById("currentDate").innerHTML = "Current Date: " + `${time}`            
+            document.getElementById("temperature").innerHTML = "Temperature: " + json.main.temp
+            document.getElementById("humidity").innerHTML = "Humidity: " + json.main.humidity
+            document.getElementById("wind").innerHTML = "Wind Speed: " + json.wind.speed
+            document.getElementById("weatherIcon").src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png"
+})
 
 
 }
