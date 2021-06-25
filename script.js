@@ -3,18 +3,18 @@ var apiKey = "285b694a07fb7ee5601483eddbb06432";
 // we are going to grab the input from the input element on click
 document.getElementById('searchButton').onclick = function () {
   var enteredCity = document.getElementById('cityInput').value
-  if (enertedCity) {
+  if (enteredCity) {
     // this is to clear the input feail once selected
     document.getElementById('cityInput').value = ''
-    seachCity(enertedCity)
+    seachCity(enteredCity)
   }
 }
 
 // instructing searched citied appear underneath search bar as a list from hte local localStorage
 function makeList(){
-  var savedCity = JSON.parse(localStorage.getItem('cities')) || []
+  var savedCities = JSON.parse(localStorage.getItem('cities')) || []
   for (let i = 0; i < savedcities.length; i++) {
-    createList(savedcities[i])
+    createList(savedCities[i])
   }
 }
 makeList()
@@ -34,8 +34,8 @@ var time = moment().format('MMMM Do YYYY, h:m:ss a');
 
 // now we are going to fetch this info based on the location entered
 fetch(urlWeather).then(response => response.json())
-.then(json => {
-  console.log(json)
+    .then(json => {
+      console.log(json)
 // this is inserting the weather requirements into the HTML 
             document.getElementById("cityTitle").innerHTML = json.name
             document.getElementById("currentDate").innerHTML = "Current Date: " + `${time}`            
@@ -80,7 +80,7 @@ function forecast(city) {
           }
         }
       })
-    }
+}
 
 function uv(lat, lon) {
   let uvURL =  'http://api.openweathermap.org/data/2.5/uvi?appid=' + APIkey + '&lat=' + lat + '&lon=' + lon;
